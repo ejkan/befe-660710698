@@ -5,20 +5,18 @@ import (
 )
 
 type User struct {
-	ID string `json:"id"`
+	ID   string `json:"id"`
 	Name string `json:"name"`
 }
 
-func getUsers(c *gin.Context){
-	user :=[]User{{ID:"1", Name:"Jiranya"}}
+func getUsers(c *gin.Context) {
+	user := []User{{ID: "1", Name: "Jiranya"}}
 
 	c.JSON(200, user)
 }
 
 func main() {
 	r := gin.Default()
-
 	r.GET("/users", getUsers)
-
 	r.Run(":8080")
 }
