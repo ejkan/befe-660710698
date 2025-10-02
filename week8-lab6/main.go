@@ -199,11 +199,11 @@ func deleteBook(c *gin.Context) {
 	}
 
 	if rowsAffected == 0 {
-		c.JSON(http.StatusNotFound, gin.H{"error": "book not found"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "Your query book not found"})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "book deleted successfully"})
+	c.JSON(http.StatusOK, gin.H{"message": "Your query book has been deleted successfully"})
 }
 
 func main() {
@@ -215,7 +215,7 @@ func main() {
 	r.GET("/health", func(c *gin.Context) {
 		err := db.Ping()
 		if err != nil {
-			c.JSON(http.StatusServiceUnavailable, gin.H{"message": "unheathy", "error": err})
+			c.JSON(http.StatusServiceUnavailable, gin.H{"message": "not heathy", "error": err})
 			return
 		}
 		c.JSON(200, gin.H{"message": "healthy"})
